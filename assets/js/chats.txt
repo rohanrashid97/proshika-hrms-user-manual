@@ -1,0 +1,222 @@
+// =======================
+// GLOBAL STATE
+// =======================
+let manualData = [];
+let lastQuestion = "";
+let waitingForClarification = false;
+
+
+// =======================
+// LOAD MANUAL
+// =======================
+async function loadManual() {
+  try {
+    const res = await fetch("partials/main.html");
+    const html = await res.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    manualData = doc.body.innerText
+      .replace(/\s+/g, " ")
+      .split(". ")
+      .map(t => t.trim().toLowerCase())
+      .filter(t => t.length > 30);
+
+    console.log("✅ Manual Loaded");
+  } catch (e) {
+    console.error("❌ Manual load failed", e);
+  }
+}
+
+loadManual();
+
+
+// =======================
+// TOGGLE CHAT
+// =======================
+window.toggleChat = function () {
+  const chat = document.getElementById("ai-chat-container");
+  chat.style.display =
+    chat.style.display === "flex" ? "none" : "flex";
+};
+
+
+// =======================
+// SECTION MAP (FOR LINKS)
+// =======================
+const sectionMap = [
+  { keys: ["leave", "chuti"], id: "leave-information" },
+  { keys: ["salary", "payroll"], id: "salary-processing" },
+  { keys: ["attendance", "present"], id: "attendance-register" },
+  { keys: ["employee", "info"], id: "employee-information" },
+  { keys: ["nominee"], id: "nominee-information" },
+  { keys: ["loan"], id: "loan-application" },
+  { keys: ["tax"], id: "tax-calculation" },
+  { keys: ["bonus"], id: "bonus-process" }
+];
+
+
+// =======================
+// DETECT SECTION
+// =======================
+function detectSection(question) {
+  const q = question.toLowerCase();
+
+  let bestMatch = null;
+  let maxScore = 0;
+
+  for (let sec of sectionMap) {
+    let score = 0;
+
+    for (let key of sec.keys) {
+      if (q.includes(key)) score++;
+    }
+
+    if (score > maxScore) {
+      maxScore = score;
+      bestMatch = sec;
+    }
+  }
+
+  return bestMatch;
+}
+
+
+// =======================
+// FIND BEST MATCH
+// =======================
+function findBestMatch(question) {
+  const words = question.toLowerCase().split(" ");
+
+  let bestScore = 0;
+  let bestText = "";
+
+  for (let para of manualData) {
+    let score = 0;
+
+    for (let w of words) {
+      if (para.includes(w)) score++;
+    }
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestText = para;
+    }
+  }
+
+  return { bestScore, bestText };
+}
+
+
+// =======================
+// ADD LINK
+// =======================
+function addManualLink(question, answer) {
+  const section = detectSection(question);
+
+  if (!section) return answer;
+
+  return `
+    ${answer}
+    <br><br>
+    <a href="#" onclick="scrollToSection('${section.id}')" style="
+      color:#1a73e8;
+      font-weight:bold;
+      cursor:pointer;
+    ">
+      👉 বিস্তারিত দেখতে এখানে ক্লিক করুন
+    </a>
+  `;
+}
+
+
+// =======================
+// SMART RESPONSE
+// =======================
+function generateSmartAnswer(userInput) {
+
+  const q = userInput.toLowerCase();
+
+  // ===== casual =====
+  if (q.includes("hi") || q.includes("hello")) {
+    return "Hello 👋 আমি HRMS Assistant। কী জানতে চান?";
+  }
+
+  if (q.includes("how are you") || q.includes("kemon acho")) {
+    return "আমি ভালো আছি 😊 আপনি HRMS এর কোন বিষয় জানতে চান?";
+  }
+
+  // ===== clarification mode =====
+  if (waitingForClarification) {
+    const combined = lastQuestion + " " + q;
+
+    const result = findBestMatch(combined);
+
+    waitingForClarification = false;
+
+    if (result.bestScore > 1) {
+      return "Thanks for clarification 👍\n\n" +
+        result.bestText.charAt(0).toUpperCase() + result.bestText.slice(1);
+    }
+
+    return "দুঃখিত, এখনও পরিষ্কার না 😅 আপনি আর একটু বিস্তারিত বলবেন?";
+  }
+
+  // ===== normal match =====
+  const result = findBestMatch(q);
+
+  if (result.bestScore > 1) {
+    return result.bestText.charAt(0).toUpperCase() + result.bestText.slice(1);
+  }
+
+  // ===== unclear =====
+  lastQuestion = q;
+  waitingForClarification = true;
+
+  return "🤔 আমি পুরোটা বুঝতে পারিনি। একটু বিস্তারিত বলবেন?\n\nউদাহরণ:\n- Leave apply\n- Salary process\n- Attendance report";
+}
+
+
+// =======================
+// MAIN CHAT FUNCTION
+// =======================
+window.askGemini = function () {
+
+  const input = document.getElementById("user-input");
+  const chat = document.getElementById("chat-history");
+
+  const text = input.value.trim();
+  if (!text) return;
+
+  // USER MSG
+  chat.innerHTML += `<div class="user-msg"><span>${text}</span></div>`;
+  input.value = "";
+
+  const id = "load-" + Date.now();
+  chat.innerHTML += `<div id="${id}" class="ai-msg"><span>Thinking...</span></div>`;
+
+  setTimeout(() => {
+
+    document.getElementById(id)?.remove();
+
+    let reply = generateSmartAnswer(text);
+    reply = addManualLink(text, reply);
+
+    chat.innerHTML += `<div class="ai-msg"><span>${reply}</span></div>`;
+    chat.scrollTop = chat.scrollHeight;
+
+  }, 600);
+};
+
+
+// =======================
+// ENTER KEY SUPPORT
+// =======================
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    if (document.activeElement.id === "user-input") {
+      askGemini();
+    }
+  }
+});

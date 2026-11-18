@@ -1,0 +1,468 @@
+<header class="main-header">
+    <div class="container">
+        <h1>Proshika HRMS - ব্যবহারকারী ম্যানুয়াল (বাংলা)</h1>
+        <div class="meta">সংস্করণ: 1.1 • প্রকাশ: ২০২৫</div>
+    </div>
+</header>
+
+<section id="content-area" class="content container">
+    <article id="overview" class="card">
+        <h2>সংক্ষিপ্ত বিবরণ</h2>
+        <p>Proshika HRMS একটি ওয়েব-ভিত্তিক Human Resource Management System। এখানে দুই ধরণের ব্যবহারকারী থাকবে —
+            <strong>অ্যাডমিন</strong> এবং <strong>ইউজার</strong>। অ্যাডমিনের সমস্ত মডিউলে অ্যাক্সেস থাকবে; ইউজারকে
+            অ্যাডমিন নির্দিষ্ট মডিউল অ্যাক্সেস দিবে।
+        </p>
+
+        <h3>ব্যবহারিক কর্মপ্রবাহ (Quick workflow)</h3>
+        <ol>
+            <li>লগইন করুন → আপনার রোল অনুযায়ী ড্যাশবোর্ড খুলবে।</li>
+            <li>নতুন কর্মচারী যুক্ত করতে: HRMS → Employee Information → Add Employee</li>
+            <li>ছুটি আবেদন: Leave → Apply Leave</li>
+            <li>রিপোর্ট পেতে: Reports → List Of Employee → Export</li>
+        </ol>
+    </article>
+
+    <article id="employee" class="card">
+        <h2>কর্মচারী তথ্য (Employee Information)</h2>
+        <p>এই সেকশনে কর্মচারীর মৌলিক ও প্রাসঙ্গিক সকল তথ্য যোগ/দেখা/সম্পাদনা করা হয়।</p>
+        <h4>ফিল্ড গাইড (প্রতিটি ফর্ম ফিল্ড কিরকম ডেটা চায়)</h4>
+        <ul>
+            <li><strong>নাম:</strong> সম্পূর্ণ নাম (বড় হাত/ছোট হাত যেভাবেই ইঙ্গিত নেই)</li>
+            <li><strong>কর্মচারী আইডি:</strong> ইউনিক আইডি (EMPxxx)</li>
+            <li><strong>শাখা:</strong> কর্মস্থল শাখা</li>
+            <li><strong>পদবী:</strong> অফিসিয়াল পদবী</li>
+            <li><strong>যোগদানের তারিখ:</strong> YYYY-MM-DD ফরম্যাট</li>
+            <li><strong>ফটো:</strong> আপলোড (আইকন/প্রোফাইল)</li>
+        </ul>
+
+        <h4>কীভাবে যুক্ত করবেন</h4>
+        <ol>
+            <li>ড্যাশবোর্ড → HRMS → Employee Information</li>
+            <li>"Add Employee" বোতাম ক্লিক করুন</li>
+            <li>প্রয়োজনীয় ফিল্ড পূরণ করুন এবং "Save" চাপুন</li>
+            <li>রেকর্ড তালিকায় যুক্ত হলে একটি সাফল্য বার্তা দেখাবে</li>
+        </ol>
+
+        <figure>
+            <img src="example-employee.png" alt="Employee form screenshot" class="doc-img">
+            <figcaption>ছবির বর্ণনা: কর্মচারী যোগ করার ফর্ম (নাম, আইডি, শাখা, পদ, যোগদানের তারিখ)।</figcaption>
+        </figure>
+    </article>
+
+    <article id="nominee" class="card">
+        <h2>নামিনি তথ্য (Nominee Information)</h2>
+        <p>নামিনি হলো কর্মচারীর সুবিধাভোগী ব্যক্তি (উদাহরণ: ইনস্যুরেন্স/সামগ্রিক সুবিধার জন্য)।</p>
+        <h4>কি তথ্য লাগবে</h4>
+        <ul>
+            <li>নাম</li>
+            <li>সম্পর্ক (বউ/সন্তান/অভিভাবক)</li>
+            <li>জন্ম তারিখ</li>
+            <li>শেয়ার (%)</li>
+            <li>যোগাযোগ নম্বর</li>
+        </ul>
+        <h4>কীভাবে করবেন</h4>
+        <ol>
+            <li>Employee → নির্বাচন করুন → Nominee tab → Add Nominee</li>
+            <li>প্রয়োজনীয় তথ্য ইনপুট করে Save করুন</li>
+        </ol>
+    </article>
+
+    <article id="guarantor" class="card">
+        <h2>গ্যারান্টর তথ্য (Guarantor Information)</h2>
+        <p>গ্যারান্টর হলো সেই ব্যক্তি যিনি কোনও ঋণ বা দায়ভার জন্য গ্যারান্টি দিচ্ছেন।</p>
+        <h4>ফর্ম ফিল্ড</h4>
+        <ul>
+            <li>গ্যারান্টরের নাম</li>
+            <li>সম্পর্ক</li>
+            <li>আইডি/ঠিকানা/যোগাযোগ</li>
+            <li>কর্মচারীর সঙ্গে প্রাসঙ্গিক নোট</li>
+        </ul>
+    </article>
+
+    <article id="leave" class="card">
+        <h2>ছুটি তথ্য (Leave Information)</h2>
+        <p>ইউজাররা এখানে ছুটি আবেদনের ফর্ম পূরণ করবে এবং ম্যানেজার/অ্যাডমিন অনুমোদন করবেন।</p>
+        <h4>ছুটির ধরণ</h4>
+        <ul>
+            <li>বার্ষিক ছুটি</li>
+            <li>সিকনেস লিভ</li>
+            <li>অফিশিয়াল ছুটি</li>
+            <li>অনুরোধকৃত কাস্টম টাইপ (সিস্টেম থেকে কনফিগারযোগ্য)</li>
+        </ul>
+        <h4>ছুটি আবেদন ধাপ</h4>
+        <ol>
+            <li>Leave → Apply Leave</li>
+            <li>টাইপ, শুরু-শেষ তারিখ, কারণ লিখুন</li>
+            <li>সাবমিট করুন — ম্যানেজার/অ্যাডমিন রিভিউ করে অনুমোদন/বাতিল করবেন</li>
+            <li>আপনি Leave History থেকে স্ট্যাটাস ট্র্যাক করতে পারবেন</li>
+        </ol>
+    </article>
+
+    <article id="status" class="card">
+        <h2>স্ট্যাটাস পরিবর্তন (Status Change)</h2>
+        <p>কর্মজীবনে যে পরিবর্তনগুলো ঘটতে পারে সেগুলো রেকর্ড করা হয়: পদোন্নতি, স্থানান্তর, স্থগিতকরণ ইত্যাদি।</p>
+        <h4>নতুন স্ট্যাটাস যোগ করা</h4>
+        <ol>
+            <li>Employee → Status Change → Add Change</li>
+            <li>স্ট্যাটাস টাইপ নির্বাচন (Promotion/Transfer/Suspension)</li>
+            <li>কার্যকরতার তারিখ ও নোট দিন → Save</li>
+        </ol>
+    </article>
+
+    <article id="loan" class="card">
+        <h2>ঋণ আবেদন (Loan Apply)</h2>
+        <p>কর্মচারী ঋণ আবেদন ফর্ম এবং অ্যাডমিন কর্তৃক অনুমোদনের ধারা।</p>
+        <h4>প্রক্রিয়া</h4>
+        <ol>
+            <li>Employee → Loan Apply</li>
+            <li>ঋণের পরিমাণ, কিস্তি পরিকল্পনা, কারণ উল্লেখ করুন</li>
+            <li>সাবমিট → অ্যাডমিন রিভিউ → অনুমোদন/বাতিল</li>
+        </ol>
+    </article>
+
+    <article id="requisition" class="card">
+        <h2>কর্মচারী অনুরোধ (Employee Requisition)</h2>
+        <p>নতুন পদের চাহিদা তৈরির ধাপ: বিভাগ/শাখা থেকে আবেদন জেনারেট।</p>
+        <ol>
+            <li>Recruitment → Employee Requisition → Add Requisition</li>
+            <li>পদের নাম, সংখ্যা, বিভাগ, কারণ, অনুমিত বেতন উল্লেখ করুন</li>
+            <li>সাবমিট → অনুমোদন প্রক্রিয়া শুরু হবে</li>
+        </ol>
+    </article>
+
+    <article id="ad" class="card">
+        <h2>বিজ্ঞাপন / সার্কুলার (Advertisement/Circular)</h2>
+        <p>চাকরির বিজ্ঞাপন তৈরি ও প্রকাশের ধাপ।</p>
+        <ol>
+            <li>Recruitment → Advertisement → Create</li>
+            <li>পদের বিবরণ, যোগ্যতা, আবেদন শেষ তারিখ নির্ধারণ</li>
+            <li>Publish → বিজ্ঞাপন পাবলিশ করা হবে</li>
+        </ol>
+    </article>
+
+    <article id="interview" class="card">
+        <h2>সাক্ষাৎকার / নির্বাচন (Interview/Selection)</h2>
+        <p>আগ্রহী প্রার্থীদের তালিকা, সাক্ষাৎকার নির্ধারণ ও ফলাফল রেকর্ড করা হয়।</p>
+        <ol>
+            <li>Applications → Select candidate → Schedule Interview</li>
+            <li>ফলাফল (Pass/Fail) রেকর্ড করে যথাযথ নোট রাখুন</li>
+        </ol>
+    </article>
+
+    <article id="appointment" class="card">
+        <h2>নিযুক্তি পত্র (Appointment Letter)</h2>
+        <p>নিয়োগ নিশ্চিত হলে স্বয়ংক্রিয় টেমপ্লেটে নিয়োগপত্র জেনারেট করুন।</p>
+        <ol>
+            <li>Candidate → Generate Appointment → Fill joining date, salary, terms</li>
+            <li>PDF ডাউনলোড অথবা ইমেইলে পাঠান</li>
+        </ol>
+    </article>
+
+    <article id="emp-reports" class="card">
+        <h2>রিপোর্টস (Reports)</h2>
+        <p>রিপোর্ট মডিউলে বিভিন্ন ধরনের রিপোর্ট পাওয়া যায় — ফিল্টারিং ও এক্সপোর্ট সুবিধা সহ।</p>
+        <h4>প্রধান রিপোর্ট</h4>
+        <ul>
+            <li>Employee Reports (তারিখ/শাখা/পদবী অনুযায়ী)</li>
+            <li>List Of Employee (সম্পূর্ণ তালিকা, CSV/PDF)</li>
+            <li>Eligible Employees For Promotion</li>
+            <li>Designation Wise Employee</li>
+            <li>Employee Contact List</li>
+            <li>Promoted Employee</li>
+            <li>Suspension Employee</li>
+        </ul>
+        <h4>রিপোর্ট জেনারেট ধাপ</h4>
+        <ol>
+            <li>Reports → নির্বাচন করুন → ফিল্টার নির্ধারণ করুন</li>
+            <li>Generate বা Export বেছে নিন (CSV/PDF)</li>
+        </ol>
+    </article>
+
+    <article id="list" class="card">
+        <h2>কর্মচারী তালিকা (List Of Employee)</h2>
+        <p>এই রিপোর্টে প্রতিটি কর্মচারীর মৌলিক সার-রেকর্ড দেখানো হয় — নাম, আইডি, শাখা, পদবী, ফোন।</p>
+    </article>
+
+    <article id="eligible" class="card">
+        <h2>পদোন্নতির যোগ্য কর্মচারী</h2>
+        <p>সিস্টেমে নির্ধারিত নিয়ম (বয়স, অভিজ্ঞতা, গতিবিধি) অনুযায়ী যোগ্যদের তালিকা তৈরি করা যায়।</p>
+    </article>
+
+    <article id="designation" class="card">
+        <h2>পদবী অনুযায়ী কর্মচারী</h2>
+        <p>নির্দিষ্ট পদবী অনুযায়ী কর্মচারীর গ্রুপিং ও রিপোর্ট।</p>
+    </article>
+
+    <article id="contact" class="card">
+        <h2>কর্মচারী যোগাযোগ তালিকা</h2>
+        <p>ইমেইল, ফোন এবং জরুরি যোগাযোগের তথ্য।</p>
+    </article>
+
+    <article id="promoted" class="card">
+        <h2>পদোন্নত কর্মচারী</h2>
+        <p>পূর্বে গৃহীত পদোন্নতির রেকর্ড।</p>
+    </article>
+
+    <article id="suspended" class="card">
+        <h2>স্থগিত কর্মচারী</h2>
+        <p>বর্তমান এবং পূর্বের স্থগিতকারীর তালিকা ও কারণ।</p>
+    </article>
+
+    <article id="category" class="card">
+        <h2>ক্যাটেগরি তথ্য (Category Information)</h2>
+        <p>ড্রপডাউন মান (যেমন Leave Type, Departments, Designations) এখানে কনফিগার করা হবে।</p>
+        <ol>
+            <li>Setup → Category Information → Add/Update</li>
+            <li>নাম, টাইপ, অর্ডার ইত্যাদি নির্ধারণ করুন</li>
+        </ol>
+    </article>
+
+    <article id="branch" class="card">
+        <h2>শাখা তথ্য (Branch Information)</h2>
+        <p>শাখার নাম, ঠিকানা, ম্যানেজার, ফোন ইত্যাদি সংরক্ষণ করা হবে।</p>
+    </article>
+
+    <article id="permission" class="card">
+        <h2>ব্যবহারকারী অনুমতি (User Permission)</h2>
+        <p>রোল-ভিত্তিক অনুমতি সেট করুন (CRUD)। অ্যাডমিন এখানে ব্যবহারকারীর অধিকার নির্ধারণ করবেন।</p>
+        <ol>
+            <li>Setup → User Permission → নির্দিষ্ট রোল নির্বাচন করুন</li>
+            <li>মডিউলভিত্তিক Read/Create/Update/Delete টিক করুন</li>
+        </ol>
+    </article>
+
+    <article id="terminal" class="card">
+        <h2>টার্মিনাল অনুমতি (Terminal Permission)</h2>
+        <p>কোন টার্মিনাল/ডিভাইস থেকে লগইন করার অনুমতি আছে কিনা তা কনফিগার করুন (ব্যবহারিক ক্ষেত্রে প্রয়োজনে)।</p>
+    </article>
+
+    <article id="log" class="card">
+        <h2>লেনদেন লগ (Transactions Log)</h2>
+        <p>সিস্টেমে গুরুত্বপূর্ণ কার্যকলাপ লগ হবে: ব্যবহারকারী, একশন, সময়, আইপি ইত্যাদি।</p>
+        <h4>উদাহরণ লগ এন্ট্রি</h4>
+        <pre>2025-11-06T10:18:32Z | admin01 | create_employee | EMP123 | success</pre>
+    </article>
+
+    <article id="help" class="card">
+        <h2>হেল্প (Help)</h2>
+        <p>ব্যবহারকারী ম্যানুয়াল, টিকিট সিস্টেম, এবং যোগাযোগ পদ্ধতি।</p>
+        <ol>
+            <li>ড্যাশবোর্ড → Help → Submit Ticket</li>
+            <li>সাপোর্ট টিম বিবরণ দেখে টিকিট আপডেট করবে</li>
+        </ol>
+    </article>
+
+    <article id="faq" class="card">
+        <h2>প্রশ্নোত্তর (FAQ)</h2>
+        <h4>১) আমি লগইন করতে পারছি না</h4>
+        <p>📘 ব্যবহার নির্দেশিকা – সূচিপত্র (Core Table of Contents)
+            ১. ভূমিকা (Introduction)
+
+            ১.১ নির্দেশিকার উদ্দেশ্য
+
+            ১.২ সিস্টেমের সংক্ষিপ্ত পরিচিতি
+
+            ১.৩ লক্ষ্য ও পরিধি
+
+            ১.৪ ব্যবহারকারীর শ্রেণি ও ভূমিকা
+
+            ১.৫ অনুমতি (Access Rights) কাঠামো
+
+            ২. প্রাথমিক প্রস্তুতি (Getting Started)
+
+            ২.১ সিস্টেমের প্রয়োজনীয়তা (System Requirements)
+
+            ২.২ লগইন ও লগআউট প্রক্রিয়া
+
+            ২.৩ ড্যাশবোর্ডের পরিচিতি ও নেভিগেশন
+
+            ২.৪ ব্যবহারকারী প্রোফাইল ব্যবস্থাপনা
+
+            ২.৫ নিরাপত্তা নীতি ও গোপনীয়তা নির্দেশনা
+
+            ৩. মানবসম্পদ ব্যবস্থাপনা মডিউল (HRMS Module)
+
+            ৩.১ কর্মচারীর তথ্য ব্যবস্থাপনা (Employee Information)
+
+            ৩.২ মনোনীত ব্যক্তির তথ্য (Nominee Information)
+
+            ৩.৩ জামিনদার তথ্য (Guarantor Information)
+
+            ৩.৪ ছুটির তথ্য ও আবেদন (Leave Information)
+
+            ৩.৫ চাকরির অবস্থা পরিবর্তন (Status Change)
+
+            ৩.৬ ঋণ আবেদন ও অনুমোদন প্রক্রিয়া (Loan Apply)
+
+            ৪. নিয়োগ ব্যবস্থাপনা মডিউল (Recruitment Module)
+
+            ৪.১ কর্মী চাহিদা আবেদন (Employee Requisition)
+
+            ৪.২ বিজ্ঞাপন ও সার্কুলার প্রকাশ (Advertisement/Circular)
+
+            ৪.৩ সাক্ষাৎকার ও বাছাই প্রক্রিয়া (Interview/Selection)
+
+            ৪.৪ নিয়োগপত্র প্রস্তুতি ও জারি (Appointment Letter)
+
+            ৫. প্রতিবেদন মডিউল (Reports Module)
+
+            ৫.১ কর্মচারী প্রতিবেদন (Employee Reports)
+
+            ৫.২ কর্মচারী তালিকা (List of Employees)
+
+            ৫.৩ পদোন্নতির যোগ্য কর্মচারী (Eligible Employees for Promotion)
+
+            ৫.৪ পদভিত্তিক কর্মচারী প্রতিবেদন (Designation-wise Employee Report)
+
+            ৫.৫ কর্মচারী যোগাযোগ তালিকা (Employee Contact List)
+
+            ৫.৬ পদোন্নত ও স্থগিতকৃত কর্মচারীর প্রতিবেদন (Promoted/Suspended Employees)
+
+            ৬. সেটআপ ও কনফিগারেশন মডিউল (Setup Module)
+
+            ৬.১ শ্রেণী তথ্য সংযোজন ও সম্পাদনা (Category Information)
+
+            ৬.২ শাখা তথ্য ব্যবস্থাপনা (Branch Information)
+
+            ৬.৩ ব্যবহারকারী অনুমতি নির্ধারণ (User Permission)
+
+            ৬.৪ টার্মিনাল অনুমতি (Terminal Permission)
+
+            ৬.৫ লেনদেন লগ পর্যালোচনা (Transaction Log)
+
+            ৭. সহায়তা মডিউল (Help Module)
+
+            ৭.১ ব্যবহার নির্দেশিকা (User Manual) অ্যাক্সেস পদ্ধতি
+
+            ৭.২ সহায়তা ও যোগাযোগ তথ্য (Contact Support)
+
+            ৭.৩ সাধারণ জিজ্ঞাসা ও উত্তর (FAQ)
+
+            ৮. সমস্যা সমাধান ও ত্রুটি নির্দেশিকা (Troubleshooting & Common Issues)
+
+            ৮.১ সাধারণ সমস্যা ও কারণ
+
+            ৮.২ সমাধানের ধাপসমূহ
+
+            ৮.৩ প্রযুক্তিগত সহায়তা প্রাপ্তির নির্দেশনা
+
+            ৯. নিরাপত্তা ও তথ্য সুরক্ষা (Security & Data Protection)
+
+            ৯.১ পাসওয়ার্ড ও ব্যবহারকারী নিরাপত্তা নীতি
+
+            ৯.২ তথ্য ব্যাকআপ ও সংরক্ষণ নীতি
+
+            ৯.৩ প্রবেশাধিকার নিয়ন্ত্রণ নির্দেশিকা
+
+            ৯.৪ গোপনীয়তা সংরক্ষণ নির্দেশনা
+
+            ১০. পরিশিষ্ট ও পরিভাষা (Appendix & Glossary)
+
+            ১০.১ পরিভাষার ব্যাখ্যা (Glossary of Terms)
+
+            ১০.২ সূচিপত্র (Index)
+
+            ১০.৩ সংস্করণ ইতিহাস (Revision History)
+
+            অতিরিক্ত অধ্যায় (ঐচ্ছিক)
+
+            ক. দ্রুত শুরু নির্দেশিকা (Quick Start Guide)
+
+            খ. ব্যবহারকারীর ভূমিকা অনুযায়ী কার্যপ্রবাহ চিত্র (Workflow Diagrams by Role)
+
+            গ. হালনাগাদ সংস্করণের পরিবর্তনসমূহ (Release Notes / Changelog)
+
+
+
+
+            এইচআরএমএস ( HRMS )
+
+            Each sub-module follows this pattern:
+
+            ## কর্মচারী তথ্য / Employee Information
+            Role: 🔹 HR Officer Only
+
+            ### উদ্দেশ্য / Purpose
+            Explain what this module manages.
+
+            ### ধাপে ধাপে নির্দেশিকা / Steps
+            1. [Bangla Instruction]
+            2. [English Instruction]
+
+            ### ক্ষেত্রসমূহ / Fields
+            List of input fields and purposes.
+
+            ### স্ক্রিনশট / Screenshot
+            ![Insert Screenshot](assets/images/hrms.png)
+            *Caption in Bangla + English*
+
+            ### সমস্যার সমাধান / Troubleshooting
+            Common issues and resolutions.
+
+
+            Repeat for:
+
+            নামিনি তথ্য / Nominee Information
+
+            জামিনদার তথ্য / Guarantor Information
+
+            ছুটি আবেদন / Leave Information
+
+            স্ট্যাটাস পরিবর্তন / Status Change
+
+            ঋণ আবেদন / Loan Apply
+
+            নিয়োগ ( Recruitment )
+
+            Sub-sections:
+
+            কর্মচারী রিকুইজিশন / Employee Requisition
+
+            বিজ্ঞাপন/সার্কুলার / Advertisement & Circular
+
+            ইন্টারভিউ/সিলেকশন / Interview & Selection
+
+            অ্যাপয়েন্টমেন্ট লেটার / Appointment Letter
+
+            Each includes Purpose, Steps, Screenshot, Tips, Troubleshooting.
+
+            প্রতিবেদন ( Reports )
+
+            কর্মচারী প্রতিবেদন / Employee Reports
+
+            কর্মচারীর তালিকা / Employee List
+
+            প্রো-এর জন্য উপযুক্ত কর্মচারী / Eligible Employees for Promotion
+
+            পদবী অনুযায়ী কর্মচারী / Designation-Wise Employees
+
+            যোগাযোগ তালিকা / Contact List
+
+            প্রমোশনপ্রাপ্ত কর্মচারী / Promoted Employees
+
+            সাসপেন্ডেড কর্মচারী / Suspended Employees
+
+            সেটআপ ( Setup )
+
+            বিভাগীয় তথ্য / Category Information
+
+            শাখা তথ্য / Branch Information
+
+            ইউজার পারমিশন / User Permission
+
+            টার্মিনাল পারমিশন / Terminal Permission
+
+            লেনদেন লগ / Transaction Log
+
+            সহায়তা ( Help )
+
+            ব্যবহার নির্দেশিকা / User Manual access
+
+            Contact support and FAQs</p>
+    </article>
+
+</section>
+
+<footer class="main-footer">
+    <div class="container">Proshika HRMS • সাহায্যকেন্দ্র • সংস্করণ 1.1</div>
+</footer>

@@ -1,0 +1,701 @@
+/* ================================================================
+1. VARIABLES & ROOT STYLES
+================================================================
+*/
+:root {
+  /* Colors - Brand Palette */
+  --primaryGreen: #2563eb; /* Modern Blue */
+  --secondaryNavy: #0f172a; /* Deep Navy */
+  --accentMint: #a3c9b9;
+  --accentBeige: #e6d7c3;
+  --background-color: #f7faf8;
+  --text-color: #33383a;
+  --border-color: #e2e8f0;
+
+  /* Sidebar Theme */
+  --sidebar-bg-dark-color: #ffffff;
+  --sidebar-header-bg-color: #f1f5f9;
+  --sidebar-hover-bg-color: #f1f5f9;
+  --sidebar-active-bg-color: #e0edff;
+  --sidebar-text-color: #334155;
+  --sidebar-width: 350px;
+
+  /* Layout Dimensions */
+  --header-height: 60px;
+  --footer-height: 25px;
+
+  /* Component Colors */
+  --header-bg-color: #2563eb;
+  --header-text-color: #ffffff;
+  --footer-bg-color: #1b3556;
+  --caption-color: #516d58;
+  --photocard-bg-color: #ffffff;
+  --photocard-border-color: #e3e9e4;
+  --photocardcaption-color: #5c6e63;
+}
+
+/* ================================================================
+2. GLOBAL RESET & BASE ELEMENTS
+================================================================
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* বডি লেআউট ঠিক করা */
+body {
+  font-family: "Noto Sans Bengali", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* স্ক্রিনের পুরো হাইট নিবে */
+  margin: 0;
+  overflow: hidden; /* বডিতে মেইন স্ক্রল বন্ধ থাকবে */
+}
+
+/* মেইন কন্টেন্ট এবং সাইডবার এরিয়া */
+.container {
+  display: flex;
+  flex: 1; /* ফুটার বাদে বাকি সব জায়গা নিবে */
+  overflow: hidden; /* কন্টেইনার নিজে স্ক্রল হবে না */
+  margin-top: var(--header-height);
+}
+
+/* সাইডবার পজিশন */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100%; /* কন্টেইনারের পুরো হাইট */
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  overflow-y: auto;
+  position: relative; /* fixed থেকে সরিয়ে relative করা হলো */
+  top: 0;
+}
+
+/* মেইন কন্টেন্ট (যেখানে সেকশনগুলো থাকে) */
+.main-content {
+  flex: 1;
+  padding: 20px 40px 100px 40px; /* নিচের প্যাডিং ফুটারের জন্য */
+  overflow-y: auto; /* এখানে স্ক্রল হবে, তাই সেকশন লিঙ্ক কাজ করবে */
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+/* ফুটার সবসময় নিচে থাকবে */
+/* বডি লেআউট ঠিক করা */
+body {
+  font-family: "Noto Sans Bengali", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* স্ক্রিনের পুরো হাইট নিবে */
+  margin: 0;
+  overflow: hidden; /* বডিতে মেইন স্ক্রল বন্ধ থাকবে */
+}
+
+/* মেইন কন্টেন্ট এবং সাইডবার এরিয়া */
+.container {
+  display: flex;
+  flex: 1; /* ফুটার বাদে বাকি সব জায়গা নিবে */
+  overflow: hidden; /* কন্টেইনার নিজে স্ক্রল হবে না */
+  margin-top: var(--header-height);
+}
+
+/* সাইডবার পজিশন */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100%; /* কন্টেইনারের পুরো হাইট */
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  overflow-y: auto;
+  position: relative; /* fixed থেকে সরিয়ে relative করা হলো */
+  top: 0;
+}
+
+/* মেইন কন্টেন্ট (যেখানে সেকশনগুলো থাকে) */
+.main-content {
+  flex: 1;
+  padding: 20px 40px 100px 40px; /* নিচের প্যাডিং ফুটারের জন্য */
+  overflow-y: auto; /* এখানে স্ক্রল হবে, তাই সেকশন লিঙ্ক কাজ করবে */
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+/* ফুটার সবসময় নিচে থাকবে */
+.footer {
+  width: 100%;
+  height: var(--footer-height);
+  background-color: var(--footer-bg-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1001;
+  flex-shrink: 0; /* ফুটার যেন ছোট না হয়ে যায় */
+}
+h1,
+h3 {
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: #000205;
+}
+
+h2 {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primaryGreen);
+}
+
+/* ================================================================
+3. MEDIA & FIGURES (Images, Videos, Captions)
+================================================================
+*/
+img {
+  max-height: fit-content;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.ss-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80vw;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+.ss-video {
+  display: block;
+  margin: 0 auto;
+  max-width: 80vw;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  object-fit: contain;
+  background: #000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.ss-video::-webkit-media-controls-panel {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+figure {
+  display: block;
+  margin: 20px 0;
+  border-radius: 8px;
+  object-fit: contain;
+  text-align: center;
+}
+
+.custom-figure {
+  width: fit-content;
+  align-self: center;
+  margin: 10px auto 30px auto;
+  border: 2px solid var(--photocard-border-color);
+  background: var(--photocard-bg-color);
+  padding: 5px;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
+figcaption {
+  margin-top: 10px;
+  font-style: italic;
+  color: #666;
+  font-size: 16px;
+}
+
+/* ================================================================
+4. LAYOUT COMPONENTS (Header, Footer, Container)
+================================================================
+/* --- Fixed Header with Logo, Shine Animation & Search --- */
+.header {
+  display: flex;
+  justify-content: space-between; /* লোগো বামে এবং সার্চ ডানে নেওয়ার জন্য */
+  align-items: center;
+  padding: 0 30px; /* দুই পাশে একটু জায়গা বাড়ানো হয়েছে */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* বাম পাশের লোগো এবং টাইটেল */
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-logo {
+  height: 45px;
+  width: auto;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  transform: translateY(5px);
+  font-size: 1.3em;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  background: linear-gradient(90deg, #ffffff, #a3c9b9, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+/* ডান পাশের সার্চ বক্স */
+.header-search-wrapper {
+  flex: 0 0 35%; /* হেডার এর ৩৫% জায়গা জুড়ে থাকবে */
+  max-width: 450px;
+  position: relative;
+}
+
+.header-search-wrapper input {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15); /* হালকা ট্রান্সপারেন্ট লুক */
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.header-search-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header-search-wrapper input:focus {
+  background: #ffffff;
+  color: #333;
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* সার্চ আইকন (ম্যাগনিফায়িং গ্লাস) */
+.search-icon-inside {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  font-size: 16px;
+}
+
+/* হাইলাইট স্টাইল */
+.search-highlight {
+  background-color: #ffeb3b !important;
+  color: #000 !important;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  50% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+/* Section 2: Body আপডেট করুন */
+body {
+  font-family: "Noto Sans Bengali", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.8;
+  /* overflow: hidden;  <-- এটি ডিলিট করুন অথবা কমেন্ট করুন */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* পুরো স্ক্রিন নিশ্চিত করবে */
+}
+
+/* Section 6: Main Content আপডেট করুন */
+.main-content {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  padding: 90px 20px 70px;
+  /* height: calc(100vh - var(--header-height) - var(--footer-height)); <-- এটি রিমুভ করুন */
+  flex: 1; /* এটি কন্টেন্টকে যতটুকু জায়গা দরকার নিবে এবং ফুটারকে নিচে ঠেলে দিবে */
+}
+
+/* ফুটারের জন্য এই স্টাইলটি যোগ করুন (যদি না থাকে) */
+/* Footer Style: এটি কপি করে আপনার CSS এ ফুটার সেকশনে দিন */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--footer-height);
+  background-color: var(--footer-bg-color);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 2000; /* যেন এটি সবকিছুর উপরে থাকে */
+  font-size: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer a {
+  margin-left: 5px;
+  text-decoration: none;
+}
+/* ================================================================
+5. SIDEBAR NAVIGATION (Accordion Style)
+================================================================
+*/
+.sidebar {
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #334155;
+  overflow-y: auto;
+  padding: 12px 0;
+  backdrop-filter: blur(8px);
+}
+
+.sidebar-header {
+  padding: 18px 20px;
+  font-size: 1.15em;
+  font-weight: 600;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  letter-spacing: 0.3px;
+}
+
+.sidebar-header a {
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.sidebar-nav {
+  padding: 10px 0;
+}
+
+.accordion-item {
+  margin: 6px 8px;
+  border-radius: 10px;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 11px 16px;
+  margin: 6px 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.93em;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.accordion-header:hover {
+  transform: translateX(6px);
+  background-color: var(--sidebar-hover-bg-color);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-header:active {
+  transform: scale(0.98);
+}
+
+.accordion-header[aria-expanded="true"] {
+  background: #eef4ff;
+  color: #2563eb;
+  border-radius: 8px 8px 0 0;
+}
+
+.icon {
+  display: inline-block;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] .icon {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] + .accordion-content {
+  background: #f8fbff;
+  border-left: 3px solid #2563eb;
+  margin: 0 8px 6px 8px;
+  border-radius: 0 0 10px 10px;
+  padding: 6px 0;
+  max-height: 1000px;
+}
+
+.accordion-content a {
+  display: block;
+  padding: 9px 18px 9px 38px;
+  font-size: 0.88em;
+  color: #64748b;
+  border-radius: 6px;
+  margin: 2px 10px;
+  transition: all 0.2s ease;
+}
+
+.accordion-content a:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  transform: translateX(4px);
+}
+
+.accordion-content a.active {
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* ================================================================
+6. MAIN CONTENT AREA & TABLES
+================================================================
+*/
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.doc-table th,
+.doc-table td {
+  border: 1px solid #ddd;
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.doc-table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: bold;
+}
+
+.doc-table tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+.doc-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  padding: 90px 20px 70px;
+  /* height: calc(100vh - var(--header-height) - var(--footer-height)); <-- এটি রিমুভ করুন */
+  flex: 1; /* এটি কন্টেন্টকে যতটুকু জায়গা দরকার নিবে এবং ফুটারকে নিচে ঠেলে দিবে */
+}
+
+.main-content section {
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* ================================================================
+7. UTILITY CLASSES
+================================================================
+*/
+.textcolor-one {
+  color: var(--accentBeige);
+}
+.textcolor-two {
+  color: var(--border-color);
+}
+.textcolor-three {
+  color: var(--secondaryNavy);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #007bff, #00bcd4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 25px;
+  z-index: 99;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: var(--secondaryNavy);
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 30%;
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    opacity 180ms ease;
+  opacity: 0.5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+#backToTop:hover {
+  transform: translateY(-4px) scale(1.06);
+  opacity: 1;
+}
+
+/* ================================================================
+8. SCROLLBAR & RESPONSIVE
+================================================================
+*/
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+    z-index: 1100;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+  }
+}
+
+#quick-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+
+#quick-suggestions button {
+  background: white;
+  border: 1px solid #1a73e8;
+  color: #1a73e8;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+#quick-suggestions button:hover {
+  background: #1a73e8;
+  color: white;
+}
+
+/* চ্যাট হিস্ট্রি যেন সাজেশন বাটনের জায়গা ছেড়ে দেয় */
+#chat-history {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 10px;
+}
+
+.ai-msg span {
+  background: #f1f3f4;
+  color: #202124;
+  border-radius: 12px 12px 12px 2px;
+  padding: 10px;
+  display: inline-block;
+  max-width: 90%;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.user-msg span {
+  background: #1a73e8;
+  color: white;
+  border-radius: 12px 12px 2px 12px;
+  padding: 10px;
+  display: inline-block;
+  max-width: 90%;
+  float: right;
+  margin-bottom: 10px;
+}
